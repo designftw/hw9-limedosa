@@ -538,6 +538,21 @@ button {
   button:hover {
 	background-color: #004b9b;
   }
+button.delete_button{
+	background-color: #ff0000;
+	
+	color: #fff;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 0.25rem;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+  }
+  
+  button:hover {
+	background-color: #004b9b;
+}
   
   button:active {
 	background-color: #005cbf;
@@ -598,7 +613,7 @@ label textarea {
 
 #add_entry_button,
 #save_button {
-	background-color: #0071c5;
+	background-color: #81008aae;
 	color: #fff;
 	padding: 10px 15px;
 	border: none;
@@ -610,18 +625,18 @@ label textarea {
 
 #add_entry_button:hover,
 #save_button:hover {
-	background-color: #0062a3;
+	background-color: #75008a;
 }
 
 #add_entry_button:active,
 #save_button:active {
-	background-color: #00578a;
+	background-color: #75008a;
 }
 
 #add_entry_button:focus,
 #save_button:focus {
 	outline: none;
-	box-shadow: 0 0 0 2px rgba(0, 113, 197, 0.4);
+	box-shadow: 0 0 0 2px rgba(145, 0, 197, 0.4);
 }
 
 progress {
@@ -641,7 +656,7 @@ progress {
   }
   
   #data th {
-	background-color: #0071c5;
+	background-color: #00c55c;
 	color: #fff;
 	padding: 10px;
   }
@@ -716,4 +731,18 @@ progress {
   #app.logged-out #logout_button {
 	display: none;
   }
-  
+.loginButton:hover{
+	background-color: #bfb631;
+	color: #fff;
+}
+.logout_button:hover{
+	background-color: #c81919;
+	color: #fff;
+
+}
+loginButton{
+	margin-right: 10px;
+}
+logoutButton{
+	margin-bottom: 10px;
+}

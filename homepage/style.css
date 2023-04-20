@@ -1,0 +1,179 @@
+/* Apply a set of global styles to the document */
+:root {
+  --primary-color: #444;
+  --secondary-color: #eceddc;
+  --tertiary-color: #272626;
+  --background-color: #eceddc;
+  --text-color: #211717;
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
+  --line-height: 1.618;
+  --max-width: 80em;
+  --padding: 40px;
+  --border-radius: 5px;
+  --border-width: 1px;
+  --border-color: #807e7e;
+  --transition-duration: 0.3s;
+  --nav-height: 60px;
+}
+
+body {
+  padding: 60px;
+}
+
+/* this animation is based off this site: https://1stwebdesigner.com/15-css-background-effects/ */
+body {
+  background: linear-gradient(-45deg,#797979,#aeafa3,  #eceddc, #eceddc);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+  /* height: 100vh; */
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+h5{
+  font-size: large;
+}
+
+
+/* Define a set of reusable utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+/* Define a set of reusable component classes */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-family: var(--font-primary);
+}
+
+.contact-form h2 {
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-family: var(--font-secondary);
+}
+
+.form-group textarea {
+  height: 150px;
+}
+
+button[type="submit"] {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--tertiary-color);
+}
+
+.navbar {
+  color: #f5f5f5;
+  background-color: #444;
+  height: var(--nav-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0 var(--padding);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0;
+}
+.navbar ul li a:hover {
+  background-color: var(--secondary-color);
+  color: #444;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-duration) ease;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #f5f5f5;
+  padding: 1rem;
+  transition: all var(--color);
+  /* transition-duration: ease; */
+}
+
+.navbar ul li {
+  margin: 20px 0;
+}
+
+.navbar ul li a {
+  padding: 0.5rem;
+}
+
+.navbar ul.active {
+  left: 0;
+}
+
+.toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-100%, 60%);
+  font-size: 2rem;
+  cursor: pointer;
+  color: #f5f5f5;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+body {
+  line-height: 1.8;
+}

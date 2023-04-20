@@ -21,34 +21,14 @@
 	</header>
 
 	<main>
-		<button class =loginButton > Log In </button>
-		<button class =logoutButton > Log Out </button>
-		<span id=myUsername></span>
-		<button id=loginButton onclick="backend.login()">Log in</button>
-		<button id=logoutButton onclick="backend.logout()" hidden>Logout</button>
+		<h2>Homework Tracker!</h2>
+		<h1>Log in to get started!</h1>
+		<button id="loginButton" onclick="backend.login()">Log in</button>
+		<button id="logoutButton" onclick="backend.logout()" hidden>Logout</button>
+		<span id="myUsername"></span><br><br>
 
-		Value: <input id="valueInput" oninput="json.value = this.value">
-		<button id=saveButton onclick="backend.store(json)">Save</button>
-
-		<script type=module>
-		import Backend from "https://madata.dev/src/index.js";
-
-		globalThis.backend = Backend.from("https://github.com/limedosa/repo/data.json");
-
-		backend.addEventListener("mv-login", evt => {
-			loginButton.hidden = true;
-			myUsername.textContent = backend.user.username;
-		});
-
-		backend.addEventListener("mv-logout", evt => {
-			myUsername.textContent = "";
-			logoutButton.hidden = false;
-
-		});
-
-		globalThis.json = (await backend.load()) ?? {value: 0};
-		valueInput.value = json.value;
-		</script>
+		<button id="add_entry_button" onclick="backend.store(json)">Add Task</button>
+		<!-- <button id="saveButton" onclick="backend.store(json)">Add Task</button> -->
 		<div id="summary">
 			<h3>Task Summary</h3>
 			<!-- <p>Total Tasks: <span id="total_tasks"></span></p>
@@ -68,7 +48,7 @@
 			]
 		</pre>
 			</details>
-			<h3>All Tasks:</h3>
+			<!-- <h3>All Tasks:</h3> -->
 			<template id="entry_template">
 
 				<article class="entry">
@@ -100,8 +80,29 @@
 				</article>
 			</template>
 			<br>
-			<button id="add_entry_button">Add Task</button>
+
 			<button id="save_button">Submit</button>
+			<script type=module>
+		import Backend from "https://madata.dev/src/index.js";
+
+		globalThis.backend = Backend.from("https://github.com/limedosa/repo/data.json");
+
+		backend.addEventListener("mv-login", evt => {
+			loginButton.hidden = true;
+			myUsername.textContent = backend.user.username;
+			logoutButton.hidden = false;
+		});
+
+		backend.addEventListener("mv-logout", evt => {
+			myUsername.textContent = "";
+			logoutButton.hidden = true;
+			loginButton.hidden = false;
+		});
+
+		globalThis.json = (await backend.load()) ?? {value: 0};
+		valueInput.value = json.value;
+		</script>
+
 
 			<!-- <button id="sort_button">Sort</button> -->
 
@@ -116,7 +117,9 @@
 			<p>Tasks Due Today: <span id="tasks_due_today"></span></p>
 			<p>Overdue Tasks: <span id="overdue_tasks"></span></p> -->
 		</div>
-
+		<footer>
+			<p>Keeping track of your h❤️mework!</p>
+		</footer>
 	</main>
 
 </body>

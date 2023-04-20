@@ -1,47 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tracker</title>
 	<script src="index.js" type="module"></script>
+	<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-<header>
-	<button id="save_button">Save</button>
-</header>
+	<header>
+		<h1>
+			<a href="/"><strong>6.S063</strong>
+				<span>Homework Tracker</span></a>
+		</h1>
+	</header>
 
-<template id="entry_template">
-	<article class="entry">
-		<form>
-			<label>Date & Time: <input type="datetime-local" name="datetime"></label>
-			<label>Notes: <textarea name="notes"></textarea></label>
-		</form>
-	</article>
-</template>
+	<main>
+		<button class =loginButton > Log In </button>
+		<button class =logoutButton > Log Out </button>
+		<span id=myUsername></span>
+		<button id=loginButton onclick="backend.login()">Log in</button>
+		<button id=logoutButton onclick="backend.logout()" hidden>Logout</button>
 
-<main>
-	<button id="add_entry_button">Add entry</button>
-</main>
+		Value: <input id="valueInput" oninput="json.value = this.value">
+		<button id=saveButton onclick="backend.store(json)">Save</button>
 
-<details>
-	<summary>Raw data</summary>
-	<pre id="data">
-		[
-			{
-				"datetime": "2023-04-10T10:00:00",
-				"notes": "Woke up happy."
-			},
-			{
-				"datetime": "2023-04-11T19:00:02",
-				"notes": "Stressed out."
-			}
-		]
-	</pre>
-</details>
+		<script type=module>
+		import Backend from "https://madata.dev/src/index.js";
 
+		globalThis.backend = Backend.from("https://github.com/limedosa/repo/data.json");
+
+		backend.addEventListener("mv-login", evt => {
+			loginButton.hidden = true;
+			myUsername.textContent = backend.user.username;
+		});
+
+		backend.addEventListener("mv-logout", evt => {
+			myUsername.textContent = "";
+			logoutButton.hidden = false;
+
+		});
+
+		globalThis.json = (await backend.load()) ?? {value: 0};
+		valueInput.value = json.value;
+		</script>
+		<div id="summary">
+			<h3>Task Summary</h3>
+			<!-- <p>Total Tasks: <span id="total_tasks"></span></p>
+			<p>Tasks Done: <span id="tasks_done"></span></p>
+			<p>Tasks Not Done: <span id="tasks_not_done"></span></p> -->
+			<details>
+				<progress>hi</progress>
+				<summary>Raw data</summary>
+				<pre id="data">
+			[
+				{
+					"datetime": "2023-04-10T10:00:00",
+					"notes": "Add a note!",
+					"priority": "medium",
+					"done": false
+				}
+			]
+		</pre>
+			</details>
+			<h3>All Tasks:</h3>
+			<template id="entry_template">
+
+				<article class="entry">
+					<form>
+						<label>Assignment: <textarea name="assignment-name"></textarea></label>
+						<label for="due-date">Due Date:</label>
+						<input type="text" id="due-date" name="due-date" pattern="-\d{2}-\d{2}-\d{4}"
+							placeholder="DD-MM-YYYY" required>
+						<label>Notes: <textarea name="notes"></textarea></label>
+						<label>Priority:
+							<select name="priority">
+								<option value="low">Low</option>
+								<option value="medium">Medium</option>
+								<option value="high">High</option>
+							</select>
+						</label>
+						<label>Category:
+							<select name="category">
+								<option value="homework">Homework</option>
+								<option value="project">Project</option>
+								<option value="exam">Exam</option>
+								<option value="quiz">Quiz</option>
+							</select>
+						</label>
+						<label>Done: <input type="checkbox" name="done"></label>
+						<button class="delete_button">Delete</button>
+					</form>
+					<br>
+				</article>
+			</template>
+			<br>
+			<button id="add_entry_button">Add Task</button>
+			<button id="save_button">Submit</button>
+
+			<!-- <button id="sort_button">Sort</button> -->
+
+
+
+
+			<p>
+			<p></p>
+			</p>
+			<!-- <p>High Priority Tasks: <span id="high_priority_tasks"></span></p>
+			<p>Low Priority Tasks: <span id="low_priority_tasks"></span></p>
+			<p>Tasks Due Today: <span id="tasks_due_today"></span></p>
+			<p>Overdue Tasks: <span id="overdue_tasks"></span></p> -->
+		</div>
+
+	</main>
 
 </body>
+
 </html>

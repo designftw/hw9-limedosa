@@ -1,0 +1,377 @@
+body {
+	display: flex;
+	flex-flow: column;
+    /* color:#62205f; */
+	/* background: linear-gradient(45deg, black); */
+	background: linear-gradient(90deg, #8bc34a,#7ca351,#6b8e23, #556b2f);
+	/* background-position-x: var(--rainbow-offset); */
+	font-size: 22px;
+}
+
+code[class*=language-],pre[class*=language-]{color:#ccc;background:0 0;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}
+figure {
+    margin: 0;
+}
+
+
+/* on the side  */
+body::before {
+	content: "Homework 9";
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 1em 2.5em;
+	transform: rotate(45deg) translate(29%, 0em);
+	text-transform: uppercase;
+	font-size: 100%;
+	font-weight: bold;
+	line-height: 1;
+	background: #4f7e2d;
+	color: #e3e8f8;
+	transition: .5s opacity;
+}
+
+
+a:hover {
+    color: #62205f;
+  }
+
+
+@media (prefers-reduced-motion: reduce) {
+
+#back-to-top {
+		transform: translateY(0)
+}
+	}
+
+#back-to-top::before {
+		content: url('data:image/svg+xml,\
+		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white">\
+			<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />\
+		</svg>');
+		display: block;
+		margin: auto;
+		width: 1.7em;
+		aspect-ratio: 1;
+	}
+
+.back-to-top #back-to-top {
+	opacity: 0.75;
+	transform: translateY(0)
+}
+
+.back-to-top #back-to-top:is(:hover, :active) {
+		opacity: 1;
+		transform: scale(1.05);
+		transition-duration: .2s;
+	}
+
+h2, h3, h4, h5, h6 {
+    color: #3c133b;
+	font-size: 100%;
+	line-height: 1.1;
+	padding-bottom: .1em; 
+	margin: 1em 0 .4em
+}
+
+h1 > a:only-child, h2 > a:only-child, h3 > a:only-child, h4 > a:only-child, h5 > a:only-child, h6 > a:only-child {
+		color: inherit;
+		font: inherit
+	}
+
+h1 > a:only-child:not(:hover), h2 > a:only-child:not(:hover), h3 > a:only-child:not(:hover), h4 > a:only-child:not(:hover), h5 > a:only-child:not(:hover), h6 > a:only-child:not(:hover) {
+			text-decoration: none;
+		}
+
+img {
+	max-width: 100%;
+}
+
+code {
+	word-break: break-all;
+}
+
+table {
+	width: 100%;
+	border-spacing: .4em;
+}
+
+	@media (max-width: 800px) {
+			table#staff-table {
+				display: grid;
+				grid-gap: .4em;
+				grid-auto-flow: dense;
+			}
+
+			table#staff-table thead,
+			table#staff-table tr,
+			table#staff-table tbody {
+				display: contents;
+			}
+
+			table#staff-table td,
+			table#staff-table th {
+				grid-row-end: span 2;
+			}
+
+			table#staff-table :nth-child(2),
+			table#staff-table :nth-child(3) {
+				grid-row-end: span 1;
+				grid-column: 2;
+			}
+
+			table#staff-table th:last-child,
+			table#staff-table td:last-child {
+				grid-column: calc(var(--columns) - 1);
+			}
+
+			/* Give up grid, just do top down */
+		}
+
+	/* @media (max-width: 800px) and (max-width: 550px) {
+					table#staff-table *:not(#foo) {
+						grid-column: 1;
+						grid-row: initial;
+					}
+					/* Distinguish rows */
+					table#staff-table td:first-child {
+						margin-top: .8em;
+					}
+			} */
+
+body > * {
+	padding: 1.5rem;
+}
+/* this is the side menu with the big letters  */
+body > header {
+	display: flex;
+	color: #62205f;
+	font-size: 120% 
+    /* makes the txt so big */
+}
+
+body > header h1 {
+		margin: 0;
+		text-align: right;
+		font-weight: 300;
+		font-size: 200%;
+		line-height: 1
+	}
+
+@media (min-width: 700px) {
+
+body > header h1 {
+			font-size: 300%
+	}
+		}
+
+body > header h1 strong {
+			letter-spacing: -.02em;
+			display: block;
+		}
+
+
+	@media (max-width: 800px) {
+		/* Navigation underneath on small screens */
+		body > header {
+			flex-flow: column
+		}
+
+			body > header nav ul {
+				margin-left: 0;
+				padding-left: 0;
+				margin-top: 1em;
+				column-width: 4em
+			}
+
+				body > header nav ul li {
+					margin: 0 .4em;
+				}
+
+
+	}
+
+	@media (min-width: 1300px) {
+		/* Header on the side */
+		body {
+			flex-flow: row;
+		}
+
+		body > header {
+			flex-basis: 15rem;
+
+			position: sticky;
+			top: 0;
+			max-height: 100vh;
+			box-sizing: border-box;
+		}
+
+		/* Vertical heading */
+		body > header h1 strong {
+			margin-bottom: .2em;
+		}
+
+		body > header h1 span {
+			display: block;
+			writing-mode: vertical-rl;
+			transform: rotate(.5turn);
+			height: calc(100vh - 2em);
+			max-height: 10em;
+		}
+
+		@media (max-height: 45rem) {
+			body > header h1 span {
+				font-size: calc(50% + 4vh);
+				font-size: min(calc(50% + 4vh), 100%);
+			}
+		}
+	}
+
+main {
+	flex: 1;
+	background-image: linear-gradient(90deg, #F7CAC9);
+}
+
+main h2 {
+		font-size: 300%;
+		margin: .5em 0;
+        color:#62205f !important;        
+	}
+
+main h3 {
+		font-size: 240%;
+		font-weight: 300;
+	}
+
+main a {
+		font-weight: bold;
+		color: var(--c3);
+	}
+
+
+
+main pre[class*="language-"] {
+		/* Cutout corner */
+		background: linear-gradient(-135deg, transparent 1em, hsl(0 0% 100% / .5) 0, hsl(0 0% 100% / .9));
+	}
+
+
+.assignment-due,
+.tip,
+.warning,
+.note,
+.deliverable,
+.announcement {
+	width: fit-content;
+	padding: .5em .8em;
+	border-radius: .3em;
+}
+
+/* for all the things that have warnings, announcements, etc. */
+/* .tip, */
+.warning,
+.deliverable,
+.announcement,
+.note {
+	position: relative;
+	background: #203562;
+    color: white;
+	padding-left: 1.5em
+}
+
+.tip::after, .warning::after, .deliverable::after, .announcement::after, .note::after {
+		font-size: 200%;
+		position: absolute;
+		top: -.6em;
+		left: -.5em;
+		font-family: emoji;
+	}
+
+
+
+table#schedule {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	counter-reset: lecture week
+
+	/* hide headers on smaller screens with screen-reader only css */
+}
+
+@media (max-width: 950px) {
+		table#schedule th {
+			position:absolute;
+			left:-10000px;
+			top:auto;
+			width:1px;
+			height:1px;
+			overflow:hidden;
+		}
+	}
+
+@media (min-width: 950px) {
+		/* 3 columns on larger screens */
+		table#schedule {
+			grid-template-columns: 1fr 1fr auto;
+		}
+	}
+
+.participants {
+  display: flex;
+  height: 20rem;
+  gap: 1rem;
+  /* color: red; */
+  /* background-color: lavender; */
+}
+
+.participants > div {
+  flex: 1;
+  border-radius: 1rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  transition: all 0.85s cubic-bezier(0.25, 0.4, 0.45, 1.4);
+}
+
+.participants > div:hover {
+  flex: 5;
+}
+
+.participant.active {
+  height: auto;
+}
+
+.participant.active .participant-details {
+  display: block;
+}
+.participant {
+  height: 140%; /* Set initial height */
+  overflow: hidden; /* Hide overflow */
+}
+
+.participant-details {
+  display: none; /* Hide details */
+}
+.participants {
+  display: flex;
+  height: 20rem;
+  gap: 1rem;
+}
+
+.participants > div {
+  flex: 1;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.participant-details {
+  background-color: #f2f2f2;
+  padding: 1rem;
+}
+
+.participant-details h4 {
+  margin-top: 0;
+}
